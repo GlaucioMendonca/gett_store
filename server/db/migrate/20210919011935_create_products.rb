@@ -4,6 +4,7 @@ class CreateProducts < ActiveRecord::Migration[6.1]
       t.string :name
       t.decimal :price, precision: 10, scale: 2
       t.string :code, null: false, index: { unique: true }
+      t.boolean :active, default: true
 
       t.timestamps
     end

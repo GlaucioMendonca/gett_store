@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_25_185243) do
+ActiveRecord::Schema.define(version: 2021_09_19_012708) do
 
   create_table "products", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.decimal "price", precision: 10, scale: 2
     t.string "code", null: false
+    t.boolean "active", default: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "active", default: true
     t.index ["code"], name: "index_products_on_code", unique: true
   end
 
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2021_09_25_185243) do
     t.bigint "store_id"
     t.bigint "product_id"
     t.integer "amount"
+    t.boolean "active", default: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["product_id"], name: "index_stock_items_on_product_id"
@@ -35,6 +36,7 @@ ActiveRecord::Schema.define(version: 2021_09_25_185243) do
   create_table "stores", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.string "address"
+    t.boolean "active", default: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

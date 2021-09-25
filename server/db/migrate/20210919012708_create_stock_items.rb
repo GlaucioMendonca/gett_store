@@ -4,6 +4,7 @@ class CreateStockItems < ActiveRecord::Migration[6.1]
       t.references :store
       t.references :product
       t.integer :amount
+      t.boolean :active, default: true
 
       t.timestamps
     end
