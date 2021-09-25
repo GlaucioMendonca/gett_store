@@ -5,5 +5,6 @@ module Types
     field :delete_product, mutation: Mutations::DeleteProduct
 
     field :create_store, mutation: Mutations::CreateStore
+    field :update_store, mutation: Mutations::UpdateStore
   end
 end
