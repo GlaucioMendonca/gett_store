@@ -1,7 +1,30 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+# frozen_string_literal: true
+
+# Create initial products
+5.times do
+  Product.create(
+    name: Faker::Device.model_name,
+    price: Faker::Number.between(from: 1000.0, to: 10000.0).round(2),
+    code: Faker::Number.between(from: 1, to: 1000).to_s
+  )
+end
+
+# Create Stores
+3.times do
+  Store.create(
+    name: Faker::Company.name,
+    address: Faker::Address.full_address,
+    cnpj: Faker::CNPJ.numeric
+  )
+end
+
+# Create StokItems
+Store.all.each do |store|
+  Product.all.each do |product|
+    StockItem.create(
+      store_id: store.id,
+      product_id: product.id,
+      amount: Faker::Number.between(from: 5, to: 20)
+    )
+  end
+end
