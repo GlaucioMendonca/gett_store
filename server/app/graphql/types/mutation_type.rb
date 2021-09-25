@@ -6,5 +6,6 @@ module Types
 
     field :create_store, mutation: Mutations::CreateStore
     field :update_store, mutation: Mutations::UpdateStore
+    field :delete_store, mutation: Mutations::DeleteStore
   end
 end
