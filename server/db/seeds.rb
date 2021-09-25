@@ -13,8 +13,7 @@ end
 3.times do
   Store.create(
     name: Faker::Company.name,
-    address: Faker::Address.full_address,
-    cnpj: Faker::CNPJ.numeric
+    address: Faker::Address.full_address
   )
 end
 

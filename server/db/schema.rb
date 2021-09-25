@@ -35,10 +35,8 @@ ActiveRecord::Schema.define(version: 2021_09_25_185243) do
   create_table "stores", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.string "address"
-    t.string "cnpj", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["cnpj"], name: "index_stores_on_cnpj", unique: true
   end
 
 end
