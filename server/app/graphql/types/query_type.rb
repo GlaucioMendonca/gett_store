@@ -14,6 +14,14 @@ module Types
       argument :id, ID, required: true
     end
 
+    field :stock_items, [Types::StockItemType], null: false
+    field :stock_item, Types::StockItemType, null: false do
+      argument :id, ID, required: true
+    end
+    field :stock_items_by_store, [Types::StockItemType], null: false do
+      argument :store_id, ID, required: true
+    end
+
     def products
       Product.all
     end
@@ -28,6 +36,18 @@ module Types
 
     def store(id:)
       Store.find(id)
+    end
+
+    def stock_items
+      StockItem.all
+    end
+
+    def stock_item(id:)
+      StockItem.find(id)
+    end
+
+    def stock_items_by_store(store_id:)
+      StockItem.where(store_id: store_id)
     end
   end
 end
