@@ -15,8 +15,10 @@ ActiveRecord::Schema.define(version: 2021_09_19_012708) do
   create_table "products", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.decimal "price", precision: 10, scale: 2
+    t.string "code", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["code"], name: "index_products_on_code", unique: true
   end
 
   create_table "stock_items", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -32,9 +34,10 @@ ActiveRecord::Schema.define(version: 2021_09_19_012708) do
   create_table "stores", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.string "address"
-    t.integer "cnpj"
+    t.string "cnpj", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["cnpj"], name: "index_stores_on_cnpj", unique: true
   end
 
 end
