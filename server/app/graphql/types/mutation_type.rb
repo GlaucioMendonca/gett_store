@@ -2,6 +2,8 @@ module Types
   class MutationType < Types::BaseObject
     field :create_stock_item, mutation: Mutations::CreateStockItem
     field :add_item_to_stock, mutation: Mutations::AddItemToStock
+    field :remove_item_from_stock, mutation: Mutations::RemoveItemFromStock
+
     field :create_product, mutation: Mutations::CreateProduct
     field :update_product, mutation: Mutations::UpdateProduct
     field :delete_product, mutation: Mutations::DeleteProduct
